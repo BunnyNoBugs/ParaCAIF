@@ -7,7 +7,7 @@ from torch.nn import functional as F
 
 import transformers
 
-from utils import get_cls
+from .utils import get_cls
 
 
 def sample_from_values(unscaled_probs, values):

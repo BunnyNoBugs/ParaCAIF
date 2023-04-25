@@ -3,7 +3,7 @@ from typing import Optional, Union
 import torch
 import transformers
 
-from utils import get_lm
+from .utils import get_lm
 
 
 class Generator:
