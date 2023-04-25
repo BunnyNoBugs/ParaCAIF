@@ -75,7 +75,8 @@ class Generator:
                 caif_tokens_num=caif_tokens_num,
                 **sampler_kwargs
             )
-            progress_bar.progress((i+1)/max_length)
+            if progress_bar:
+                progress_bar.progress((i+1)/max_length)
             if ended_sequences.all():
                 break
             current_decoded = self.tokenizer.decode(input_ids[0])
