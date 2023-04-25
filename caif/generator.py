@@ -54,18 +54,6 @@ class Generator:
             num_samples,
         )
         gen_history = []
-        layout = go.Layout({
-            "xaxis": {
-                "title": "# Tokens"
-            },
-            "yaxis": {
-                "title": "Desired Attribute"
-            },
-            "plot_bgcolor": '#FFFFFF',
-            "template": "plotly_white",
-            "hovermode": "x",
-
-        })
         inp_len = len(input_ids[0])
         if self.caif_sampler is not None:
             current_decoded = self.tokenizer.decode(input_ids[0])
