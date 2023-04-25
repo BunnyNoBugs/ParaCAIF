@@ -2,8 +2,8 @@ import torch
 
 import transformers
 
-from sampling import CAIFSampler, TopKWithTemperatureSampler
-from generator import Generator
+from .sampling import CAIFSampler, TopKWithTemperatureSampler
+from .generator import Generator
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
