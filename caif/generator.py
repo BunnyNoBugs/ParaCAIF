@@ -87,7 +87,6 @@ class Generator:
                     )
                 ).item()
                 gen_history += [probs]
-            text.text(current_decoded)
 
         return (
             [
