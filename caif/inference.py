@@ -46,7 +46,7 @@ def inference(
     else:
         autocast = torch.cuda.amp.autocast
     with autocast(fp16):
-        print(f"Generating for prompt: {prompt}")
+        # print(f"Generating for prompt: {prompt}")
         sequences, tokens = generator.sample_sequences(
             num_samples=1,
             input_prompt=prompt,
@@ -55,6 +55,6 @@ def inference(
             entropy=entropy_threshold,
             **kwargs
         )
-        print(f"Output for prompt: {sequences}")
+        # print(f"Output for prompt: {sequences}")
 
     return sequences[0]

@@ -58,7 +58,6 @@ class CAIFSampler:
         target_cls_id: int = 0,
         **kwargs
     ):
-        print(act_type)
         next_token_logits = output_logis[:, -1]
         next_token_log_probs = F.log_softmax(
             next_token_logits, dim=-1
