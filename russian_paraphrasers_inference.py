@@ -1,6 +1,6 @@
 import torch
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
-from russian_paraphrasers.utils import clean
+from utils import clean
 from caif.inference import caif_inference
 
 
@@ -31,7 +31,7 @@ def rp_gpt_paraphrase(
         num_return_sequences=num_return_sequences
     )
     output_text = tokenizer.decode(output_sequences[0])
-    output_text = output_text.replace('=== ===', '===')
+    output_text = output_text.replace('=== ===', '===')  # todo: move to utils.clean
     output_text = output_text[: output_text.find(stop_token) if stop_token else None]
     output_text = output_text[len(tokenizer.decode(encoded_prompt[0])):]
     output_text = clean(output_text)
