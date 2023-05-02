@@ -1,7 +1,7 @@
 import torch
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from utils import clean
-from caif.inference import caif_inference
+from .caif.inference import caif_inference
 
 
 def rp_gpt_paraphrase(
