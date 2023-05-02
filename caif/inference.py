@@ -8,7 +8,7 @@ from .generator import Generator
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-def inference(
+def caif_inference(
         lm_model_name: str,
         cls_model_name: str,
         prompt: str,
