@@ -12,6 +12,7 @@ def caif_inference(
         lm_model_name: str,
         cls_model_name: str,
         prompt: str,
+        paraphraser_lm: bool = False,
         fp16: bool = True,
         alpha: float = 5,
         target_label_id: int = 0,
@@ -24,7 +25,11 @@ def caif_inference(
     generator = Generator(lm_model_name=lm_model_name, device=device)
     lm_tokenizer = transformers.AutoTokenizer.from_pretrained(lm_model_name)
     if alpha != 0:
-        caif_sampler = CAIFSampler(classifier_name=cls_model_name, lm_tokenizer=lm_tokenizer, device=device)
+        if paraphraser_lm:
+            caif_sampler = CAIFSampler(classifier_name=cls_model_name, lm_tokenizer=lm_tokenizer, device=device,
+                                       prompt_len=len(prompt))
+        else:
+            caif_sampler = CAIFSampler(classifier_name=cls_model_name, lm_tokenizer=lm_tokenizer, device=device)
         if entropy_threshold < 0.05:
             entropy_threshold = None
     else:

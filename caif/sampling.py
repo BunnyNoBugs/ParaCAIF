@@ -33,7 +33,7 @@ class TopKWithTemperatureSampler:
 
 class CAIFSampler:
     @lru_cache(20)
-    def __init__(self, classifier_name, lm_tokenizer, device, invert_cls_probs: bool = False):
+    def __init__(self, classifier_name, lm_tokenizer, device, invert_cls_probs: bool = False, prompt_len=None):
         self.device = device
         self.classifier_tokenizer = transformers.AutoTokenizer.from_pretrained(
             classifier_name
@@ -44,6 +44,7 @@ class CAIFSampler:
         self.classifier_model.eval()
         self.lm_tokenizer = lm_tokenizer
         self.invert_cls_probs = invert_cls_probs
+        self.prompt_len = prompt_len
 
     def __call__(
         self,
@@ -133,6 +134,11 @@ class CAIFSampler:
         return next_token_probs, top_next_token_log_probs[1]
 
     def get_classifier_log_probs(self, input, caif_tokens_num=None, target_cls_id: int = 0, act_type: str = "sigmoid"):
+        if self.prompt_len:
+            if isinstance(input, str):
+                input = input[self.prompt_len:]
+            elif isinstance(input, list):
+                input = [i[self.prompt_len:] for i in input]
         input_ids = self.classifier_tokenizer(
             input, padding=True, return_tensors="pt"
         ).to(self.device)
