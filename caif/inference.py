@@ -18,6 +18,7 @@ def caif_inference(
         entropy_threshold: float = 0,
         act_type: str = "sigmoid",
         num_tokens=10,
+        num_samples=1
 ) -> str:
     torch.set_grad_enabled(False)
     generator = Generator(lm_model_name=lm_model_name, device=device)
@@ -48,7 +49,7 @@ def caif_inference(
     with autocast(fp16):
         # print(f"Generating for prompt: {prompt}")
         sequences, tokens = generator.sample_sequences(
-            num_samples=1,
+            num_samples=num_samples,
             input_prompt=prompt,
             max_length=num_tokens,
             caif_period=1,
@@ -57,4 +58,4 @@ def caif_inference(
         )
         # print(f"Output for prompt: {sequences}")
 
-    return sequences[0]
+    return sequences
