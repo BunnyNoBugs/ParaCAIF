@@ -12,13 +12,14 @@ def caif_inference(
         lm_model_name: str,
         cls_model_name: str,
         prompt: str,
-        paraphraser_lm: bool = False,
+        paraphraser_lm: bool = False,  # todo: rename to gpt_paraphraser_lm
         fp16: bool = True,
         alpha: float = 5,
         target_label_id: int = 0,
         entropy_threshold: float = 0,
         act_type: str = "sigmoid",
         num_tokens=10,
+        encoder_no_repeat_ngram_size=None,
         num_samples=1
 ) -> str:
     torch.set_grad_enabled(False)
@@ -44,6 +45,7 @@ def caif_inference(
     kwargs = {
         "top_k": 20,
         "temperature": 1.0,
+        "encoder_no_repeat_ngram_size": encoder_no_repeat_ngram_size,
         "top_k_classifier": 100,
         "classifier_weight": alpha,
         "target_cls_id": target_label_id,

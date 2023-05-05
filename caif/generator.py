@@ -115,6 +115,7 @@ class Generator:
                 input_ids=self.input_prompt_ids,
                 decoder_input_ids=input_ids,
                 max_new_tokens=1,
+                encoder_no_repeat_ngram_size=sampler_kwargs['encoder_no_repeat_ngram_size'],
                 num_beams=1,
                 do_sample=False,
                 output_scores=True,
