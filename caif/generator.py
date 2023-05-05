@@ -11,9 +11,12 @@ class Generator:
 
         self.device = device
 
-        self.tokenizer = transformers.AutoTokenizer.from_pretrained(
-            lm_model_name
-        )
+        if 't5' in lm_model_name:
+            self.tokenizer = transformers.T5Tokenizer.from_pretrained(lm_model_name)
+        else:
+            self.tokenizer = transformers.AutoTokenizer.from_pretrained(
+                lm_model_name
+            )
         self.lm = get_lm(lm_model_name).to(device)
         self.lm.eval()
 
@@ -28,6 +31,7 @@ class Generator:
             "avg_entropy": 0,
             "count": 0,
         }
+        self.input_prompt_ids = None
         self.entropy = entropy
 
     def set_caif_sampler(self, sampler):
@@ -47,6 +51,7 @@ class Generator:
         progress_bar=None,
         **sampler_kwargs
     ):
+        self.input_prompt_ids = self.tokenizer(input_prompt, return_tensors='pt').input_ids.to(self.device)
         self.entropy = entropy
 
         input_ids, past, ended_sequences = self.get_input_ids(
@@ -105,15 +110,28 @@ class Generator:
         caif_tokens_num=None,
         **sampler_kwargs
     ):
-        prepared_inputs = self.lm.prepare_inputs_for_generation(
-            input_ids, past, use_cache=True
-        )
-        outputs = self.lm(
-            **prepared_inputs,
-            output_attentions=False,
-            output_hidden_states=False,
-            return_dict=True
-        )
+        if self.lm.config.is_encoder_decoder:
+            outputs = self.lm.generate(
+                input_ids=self.input_prompt_ids,
+                decoder_input_ids=input_ids,
+                max_new_tokens=1,
+                num_beams=1,
+                do_sample=False,
+                output_scores=True,
+                return_dict_in_generate=True
+            )
+            outputs.logits = outputs.scores[-1].unsqueeze(0)
+            outputs.past_key_values = None
+        else:
+            prepared_inputs = self.lm.prepare_inputs_for_generation(
+                input_ids, past, use_cache=True
+            )
+            outputs = self.lm(
+                **prepared_inputs,
+                output_attentions=False,
+                output_hidden_states=False,
+                return_dict=True
+            )
 
         past = outputs.past_key_values
         if self.entropy is not None:
@@ -219,12 +237,14 @@ class Generator:
         return input_ids, past, ended_sequences
 
     def get_input_ids(self, input_prompt, num_samples):
-        #input_ids = torch.tensor([[self.lm.config.bos_token_id]])
-        if input_prompt is not None:
-            input_prompt = self.tokenizer(
-                input_prompt, return_tensors="pt"
-            ).input_ids
-            input_ids = input_prompt
+        if self.lm.config.is_encoder_decoder:
+            input_ids = torch.tensor([[self.lm.config.decoder_start_token_id]])
+        else:
+            if input_prompt is not None:
+                input_prompt = self.tokenizer(
+                    input_prompt, return_tensors="pt"
+                ).input_ids
+                input_ids = input_prompt
         input_ids = input_ids.repeat(num_samples, 1).to(self.device)
         past = None
         ended_sequences = torch.zeros(

@@ -23,7 +23,10 @@ def caif_inference(
 ) -> str:
     torch.set_grad_enabled(False)
     generator = Generator(lm_model_name=lm_model_name, device=device)
-    lm_tokenizer = transformers.AutoTokenizer.from_pretrained(lm_model_name)
+    if 't5' in lm_model_name:
+        lm_tokenizer = transformers.T5Tokenizer.from_pretrained(lm_model_name)
+    else:
+        lm_tokenizer = transformers.AutoTokenizer.from_pretrained(lm_model_name)
     if alpha != 0:
         if paraphraser_lm:
             caif_sampler = CAIFSampler(classifier_name=cls_model_name, lm_tokenizer=lm_tokenizer, device=device,
