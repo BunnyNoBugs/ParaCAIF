@@ -21,3 +21,17 @@ caif-alpha--10-rugpt3-paraphraser|0.5012|0.5048|0.8485|0.1767|0.2928|
 rugpt3-paraphraser-max-10|0.7608|0.4051|0.7949|0.2372|0.2614|
 caif-rugpt3-paraphraser-max-10|0.7704|0.3997|0.8068|0.2404|0.2540|
 rut5-base-paraphraser-max-10|0.6341|0.5813|0.6944|0.2376|0.2956|
+caif-snlp-rugpt3-paraphraser|0.5136|0.5004|0.8451|0.1821|0.2944|
+new-caif-rugpt3-paraphraser|0.7680|0.3983|0.8066|0.2374|0.2832|
+new-caif-alpha--3-rugpt3-paraphraser|0.7081|0.4421|0.8184|0.2293|0.2762|
+new-caif-alpha-0-rugpt3-paraphraser|0.4777|0.5121|0.8485|0.1672|0.2988|
+new-caif-alpha--5-entropy-0,5-rugpt3-paraphraser|0.6475|0.4245|0.8181|0.1928|0.2785|
+rut5-base-paraphraser-top-k-20|0.4418|0.5997|0.7140|0.1635|0.2674|
+caif-rut5-base-paraphraser|0.7291|0.5372|0.6890|0.2599|0.2764|
+caif-alpha--3-rut5-base-paraphraser|0.7002|0.5565|0.6879|0.2594|0.2827|
+caif-alpha--2-rut5-base-paraphraser|0.6279|0.5762|0.7105|0.2376|0.2941|
+caif-rut5-base-paraphraser-10-samples|0.6807|0.6584|0.6912|0.3063|0.3295|
+rut5-base-paraphraser-top-k-20-no-repetition-penalty|0.4506|0.6225|0.7170|0.1743|0.2971|
+rut5-base-paraphraser-top-k-100-no-repetition-penalty|0.4664|0.5733|0.7193|0.1617|0.2774|
+caif-alpha-0-rut5-base-paraphraser|0.4351|0.6231|0.7203|0.1661|0.3000|
+caif-rut5-base-paraphraser-10-samples-threshold-0,9|0.6574|0.6824|0.6985|0.3032|0.3343|
