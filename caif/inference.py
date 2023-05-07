@@ -24,7 +24,9 @@ def caif_inference(
 ) -> str:
     torch.set_grad_enabled(False)
     generator = Generator(lm_model_name=lm_model_name, device=device)
-    if 't5' in lm_model_name:
+    if 'mt5' in lm_model_name:
+        lm_tokenizer = transformers.MT5Tokenizer.from_pretrained(lm_model_name)
+    elif 't5' in lm_model_name:
         lm_tokenizer = transformers.T5Tokenizer.from_pretrained(lm_model_name)
     else:
         lm_tokenizer = transformers.AutoTokenizer.from_pretrained(lm_model_name)

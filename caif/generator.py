@@ -11,7 +11,9 @@ class Generator:
 
         self.device = device
 
-        if 't5' in lm_model_name:
+        if 'mt5' in lm_model_name:
+            self.tokenizer = transformers.MT5Tokenizer.from_pretrained(lm_model_name)
+        elif 't5' in lm_model_name:
             self.tokenizer = transformers.T5Tokenizer.from_pretrained(lm_model_name)
         else:
             self.tokenizer = transformers.AutoTokenizer.from_pretrained(
