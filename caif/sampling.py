@@ -127,8 +127,8 @@ class CAIFSampler:
 
         next_token_probs = torch.exp(
             (top_next_token_log_probs[0] +
-             classifier_weight * (classifier_log_probs - classifier_log_probs.mean(-1)) -
-             top_next_token_log_probs[0].mean(-1))
+             classifier_weight * (classifier_log_probs - classifier_log_probs.mean(-1).unsqueeze(1)) -
+             top_next_token_log_probs[0].mean(-1).unsqueeze(1))
             / temperature
         )
         return next_token_probs, top_next_token_log_probs[1]
