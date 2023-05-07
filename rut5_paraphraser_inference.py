@@ -9,6 +9,7 @@ def rut5_paraphrase(text,
                     grams=4,
                     do_sample=False,
                     top_k=20,
+                    num_samples=1,
                     bad_words_ids=None
                     ):
     texts = [text] if isinstance(text, str) else text
@@ -21,6 +22,7 @@ def rut5_paraphrase(text,
         max_length=max_size,
         top_k=top_k,
         do_sample=do_sample,
+        num_return_sequences=num_samples,
         bad_words_ids=bad_words_ids
     )
     result = [tokenizer.decode(o, skip_special_tokens=True) for o in out]
