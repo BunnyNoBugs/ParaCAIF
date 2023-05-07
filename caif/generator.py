@@ -51,7 +51,8 @@ class Generator:
         progress_bar=None,
         **sampler_kwargs
     ):
-        self.input_prompt_ids = self.tokenizer(input_prompt, return_tensors='pt').input_ids.to(self.device)
+        self.input_prompt_ids = self.tokenizer(input_prompt, return_tensors='pt').input_ids
+        self.input_prompt_ids = self.input_prompt_ids.repeat(num_samples, 1).to(self.device)
         self.entropy = entropy
 
         input_ids, past, ended_sequences = self.get_input_ids(
@@ -121,7 +122,7 @@ class Generator:
                 output_scores=True,
                 return_dict_in_generate=True
             )
-            outputs.logits = outputs.scores[-1].unsqueeze(0)
+            outputs.logits = outputs.scores[-1].unsqueeze(1)
             outputs.past_key_values = None
         else:
             prepared_inputs = self.lm.prepare_inputs_for_generation(
