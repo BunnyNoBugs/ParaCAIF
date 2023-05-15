@@ -2,7 +2,7 @@ from caif.inference import caif_inference
 from transformers import T5Tokenizer
 
 
-def rut5_paraphrase(text,
+def t5_paraphrase(text,
                     model,
                     tokenizer,
                     beams=5,
@@ -32,7 +32,7 @@ def rut5_paraphrase(text,
         return result
 
 
-def caif_rut5_paraphrase(
+def caif_t5_paraphrase(
         text,
         lm_model_name,
         cls_model_name,
