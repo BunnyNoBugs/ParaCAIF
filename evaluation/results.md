@@ -1,37 +1,51 @@
-| Model | ACC | SIM | FL | J | ChrF1 |
-| ----- | --- | --- | -- | - | ---- |
-t5|0.7537|0.8055|0.8169|0.5046|0.5790|
-rut5-base-paraphraser|0.3412|0.7420|0.7568|0.1643|0.3232|
-russian-paraphrasers-gpt3|0.5308|0.3439|0.8837|0.1582|0.2117|
-russian-paraphrasers-gpt3-no-repetition-penalty|0.3209|0.6988|0.8682|0.1810|0.3826|
-caif-rugpt3-paraphraser|0.6243|0.3135|0.8368|0.1321|0.2349|
-caif-entropy-0,5-rugpt3-paraphraser-no-bos|0.6330|0.3233|0.8117|0.1363|0.2358|
-caif-entropy-1,5-rugpt3-paraphraser-no-bos|0.6220|0.3244|0.8185|0.1365|0.2347|
-caif-entropy-3,2-rugpt3-paraphraser-no-bos|0.6194|0.3202|0.8251|0.1310|0.2369|
-caif-entropy-5,0-rugpt3-paraphraser-no-bos|0.6018|0.3377|0.8264|0.1349|0.2414|
-rut5-base-paraphraser-no-repetition-penalty|0.2585|0.8346|0.7908|0.1413|0.4328|
-caif-alpha--3-rugpt3-paraphraser|0.5808|0.3353|0.8333|0.1286|0.2438|
-rugpt3-paraphraser|0.4381|0.5606|0.8388|0.1731|0.3203|
-rut5-base-paraphraser-bad-words-no-repetition-penalty|0.3577|0.7631|0.7296|0.1639|0.4025|
-rugpt3-paraphraser-top-k-20-top-p-1,0|0.4903|0.5046|0.8307|0.1739|0.2950|
-caif-rugpt3-paraphraser|0.4700|0.5158|0.8410|0.1650|0.2973|
-rugpt3-paraphraser-no-bos|0.6033|0.3647|0.7935|0.1410|0.2530|
-caif-rugpt3-paraphraser-no-bos|0.6162|0.3383|0.8371|0.1397|0.2460|
-caif-alpha--10-rugpt3-paraphraser|0.5012|0.5048|0.8485|0.1767|0.2928|
-rugpt3-paraphraser-max-10|0.7608|0.4051|0.7949|0.2372|0.2614|
-caif-rugpt3-paraphraser-max-10|0.7704|0.3997|0.8068|0.2404|0.2540|
-rut5-base-paraphraser-max-10|0.6341|0.5813|0.6944|0.2376|0.2956|
-caif-snlp-rugpt3-paraphraser|0.5136|0.5004|0.8451|0.1821|0.2944|
-new-caif-rugpt3-paraphraser|0.7680|0.3983|0.8066|0.2374|0.2832|
-new-caif-alpha--3-rugpt3-paraphraser|0.7081|0.4421|0.8184|0.2293|0.2762|
-new-caif-alpha-0-rugpt3-paraphraser|0.4777|0.5121|0.8485|0.1672|0.2988|
-new-caif-alpha--5-entropy-0,5-rugpt3-paraphraser|0.6475|0.4245|0.8181|0.1928|0.2785|
-rut5-base-paraphraser-top-k-20|0.4418|0.5997|0.7140|0.1635|0.2674|
-caif-rut5-base-paraphraser|0.7291|0.5372|0.6890|0.2599|0.2764|
-caif-alpha--3-rut5-base-paraphraser|0.7002|0.5565|0.6879|0.2594|0.2827|
-caif-alpha--2-rut5-base-paraphraser|0.6279|0.5762|0.7105|0.2376|0.2941|
-caif-rut5-base-paraphraser-10-samples|0.6807|0.6584|0.6912|0.3063|0.3295|
-rut5-base-paraphraser-top-k-20-no-repetition-penalty|0.4506|0.6225|0.7170|0.1743|0.2971|
-rut5-base-paraphraser-top-k-100-no-repetition-penalty|0.4664|0.5733|0.7193|0.1617|0.2774|
-caif-alpha-0-rut5-base-paraphraser|0.4351|0.6231|0.7203|0.1661|0.3000|
-caif-rut5-base-paraphraser-10-samples-threshold-0,9|0.6574|0.6824|0.6985|0.3032|0.3343|
+| Model                                                    | ACC    | SIM    | FL     | J      | ChrF1  |
+|----------------------------------------------------------|--------|--------|--------|--------|--------|
+| t5                                                       | 0.7537 | 0.8055 | 0.8169 | 0.5046 | 0.5790 |
+| rut5-base-paraphraser                                    | 0.3412 | 0.7420 | 0.7568 | 0.1643 | 0.3232 |
+| russian-paraphrasers-gpt3                                | 0.5308 | 0.3439 | 0.8837 | 0.1582 | 0.2117 |
+| russian-paraphrasers-gpt3-no-repetition-penalty          | 0.3209 | 0.6988 | 0.8682 | 0.1810 | 0.3826 |
+| caif-rugpt3-paraphraser                                  | 0.6243 | 0.3135 | 0.8368 | 0.1321 | 0.2349 |
+| caif-entropy-0,5-rugpt3-paraphraser-no-bos               | 0.6330 | 0.3233 | 0.8117 | 0.1363 | 0.2358 |
+| caif-entropy-1,5-rugpt3-paraphraser-no-bos               | 0.6220 | 0.3244 | 0.8185 | 0.1365 | 0.2347 |
+| caif-entropy-3,2-rugpt3-paraphraser-no-bos               | 0.6194 | 0.3202 | 0.8251 | 0.1310 | 0.2369 |
+| caif-entropy-5,0-rugpt3-paraphraser-no-bos               | 0.6018 | 0.3377 | 0.8264 | 0.1349 | 0.2414 |
+| rut5-base-paraphraser-no-repetition-penalty              | 0.2585 | 0.8346 | 0.7908 | 0.1413 | 0.4328 |
+| caif-alpha--3-rugpt3-paraphraser                         | 0.5808 | 0.3353 | 0.8333 | 0.1286 | 0.2438 |
+| rugpt3-paraphraser                                       | 0.4381 | 0.5606 | 0.8388 | 0.1731 | 0.3203 |
+| rut5-base-paraphraser-bad-words-no-repetition-penalty    | 0.3577 | 0.7631 | 0.7296 | 0.1639 | 0.4025 |
+| rugpt3-paraphraser-top-k-20-top-p-1,0                    | 0.4903 | 0.5046 | 0.8307 | 0.1739 | 0.2950 |
+| caif-rugpt3-paraphraser                                  | 0.4700 | 0.5158 | 0.8410 | 0.1650 | 0.2973 |
+| rugpt3-paraphraser-no-bos                                | 0.6033 | 0.3647 | 0.7935 | 0.1410 | 0.2530 |
+| caif-rugpt3-paraphraser-no-bos                           | 0.6162 | 0.3383 | 0.8371 | 0.1397 | 0.2460 |
+| caif-alpha--10-rugpt3-paraphraser                        | 0.5012 | 0.5048 | 0.8485 | 0.1767 | 0.2928 |
+| rugpt3-paraphraser-max-10                                | 0.7608 | 0.4051 | 0.7949 | 0.2372 | 0.2614 |
+| caif-rugpt3-paraphraser-max-10                           | 0.7704 | 0.3997 | 0.8068 | 0.2404 | 0.2540 |
+| rut5-base-paraphraser-max-10                             | 0.6341 | 0.5813 | 0.6944 | 0.2376 | 0.2956 |
+| caif-snlp-rugpt3-paraphraser                             | 0.5136 | 0.5004 | 0.8451 | 0.1821 | 0.2944 |
+| new-caif-rugpt3-paraphraser                              | 0.7680 | 0.3983 | 0.8066 | 0.2374 | 0.2832 |
+| new-caif-alpha--3-rugpt3-paraphraser                     | 0.7081 | 0.4421 | 0.8184 | 0.2293 | 0.2762 |
+| new-caif-alpha-0-rugpt3-paraphraser                      | 0.4777 | 0.5121 | 0.8485 | 0.1672 | 0.2988 |
+| new-caif-alpha--5-entropy-0,5-rugpt3-paraphraser         | 0.6475 | 0.4245 | 0.8181 | 0.1928 | 0.2785 |
+| rut5-base-paraphraser-top-k-20                           | 0.4418 | 0.5997 | 0.7140 | 0.1635 | 0.2674 |
+| caif-rut5-base-paraphraser                               | 0.7291 | 0.5372 | 0.6890 | 0.2599 | 0.2764 |
+| caif-alpha--3-rut5-base-paraphraser                      | 0.7002 | 0.5565 | 0.6879 | 0.2594 | 0.2827 |
+| caif-alpha--2-rut5-base-paraphraser                      | 0.6279 | 0.5762 | 0.7105 | 0.2376 | 0.2941 |
+| caif-rut5-base-paraphraser-10-samples                    | 0.6807 | 0.6584 | 0.6912 | 0.3063 | 0.3295 |
+| rut5-base-paraphraser-top-k-20-no-repetition-penalty     | 0.4506 | 0.6225 | 0.7170 | 0.1743 | 0.2971 |
+| rut5-base-paraphraser-top-k-100-no-repetition-penalty    | 0.4664 | 0.5733 | 0.7193 | 0.1617 | 0.2774 |
+| caif-alpha-0-rut5-base-paraphraser                       | 0.4351 | 0.6231 | 0.7203 | 0.1661 | 0.3000 |
+| caif-rut5-base-paraphraser-10-samples-threshold-0,9      | 0.6574 | 0.6824 | 0.6985 | 0.3032 | 0.3343 |
+| caif-mt5large-ruparaphraser-10-samples                   | 0.6852 | 0.5955 | 0.6795 | 0.2755 | 0.3732 |
+| caif-mt5large-ruparaphraser-10-samples-threshold-0,9     | 0.6366 | 0.6453 | 0.6916 | 0.2795 | 0.3951 |
+| caif-mt5large-ruparaphraser-10-samples-threshold-0,8     | 0.6321 | 0.6494 | 0.6919 | 0.2801 | 0.3984 |
+| caif-alpha-0-rut5-base-paraphraser-10-samples            | 0.6161 | 0.6039 | 0.7144 | 0.2555 | 0.3079 |
+| caif-alpha-0-mt5large-ruparaphraser-10-samples           | 0.6120 | 0.4893 | 0.7420 | 0.2247 | 0.3110 |
+| caif-alpha--3-rut5-base-paraphraser-10-samples           | 0.6922 | 0.6638 | 0.7064 | 0.3189 | 0.3353 |
+| caif-entropy-0,5-rut5-base-paraphraser-10-samples        | 0.6813 | 0.6533 | 0.6931 | 0.3007 | 0.3251 |
+| caif-entropy-1,5-rut5-base-paraphraser-10-samples        | 0.6986 | 0.6440 | 0.7124 | 0.3167 | 0.3240 |
+| caif-entropy-3,2-rut5-base-paraphraser-10-samples        | 0.6706 | 0.6246 | 0.7004 | 0.2827 | 0.3158 |
+| caif-entropy-5,0-rut5-base-paraphraser-10-samples        | 0.6471 | 0.6256 | 0.7133 | 0.2813 | 0.3180 |
+| caif-rugpt3-paraphraser-10-samples                       | 0.8050 | 0.5194 | 0.7877 | 0.3352 | 0.3242 |
+| caif-rugpt3-paraphraser-10-samples-threshold-0,9         | 0.7599 | 0.5596 | 0.7889 | 0.3418 | 0.3440 |
+| caif-alpha-0-rugpt3-paraphraser-10-samples-threshold-0,9 | 0.7318 | 0.4639 | 0.8037 | 0.2815 | 0.2856 |
+| caif-alpha-0-rugpt3-paraphraser-10-samples               | 0.7441 | 0.4128 | 0.8032 | 0.2536 | 0.2636 |
