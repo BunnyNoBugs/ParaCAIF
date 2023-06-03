@@ -49,3 +49,8 @@
 | caif-rugpt3-paraphraser-10-samples-threshold-0,9         | 0.7599 | 0.5596 | 0.7889 | 0.3418 | 0.3440 |
 | caif-alpha-0-rugpt3-paraphraser-10-samples-threshold-0,9 | 0.7318 | 0.4639 | 0.8037 | 0.2815 | 0.2856 |
 | caif-alpha-0-rugpt3-paraphraser-10-samples               | 0.7441 | 0.4128 | 0.8032 | 0.2536 | 0.2636 |
+| mt5large-ruparaphraser-top-k-20                          | 0.3887 | 0.6085 | 0.7972 | 0.1590 | 0.3552 |
+| rugpt3-paraphraser-top-k-20                              | 0.4724 | 0.5107 | 0.8527 | 0.1669 | 0.3012 |
+| caif-alpha-0-rugpt3-paraphraser-10-samples-threshold-0,8 | 0.7294 | 0.4724 | 0.8052 | 0.2858 | 0.2892 |
+| caif-alpha--2-rut5-base-paraphraser-10-samples           | 0.7093 | 0.6524 | 0.6977 | 0.3152 | 0.3344 |
+| caif-alpha--1-rut5-base-paraphraser-10-samples           | 0.6803 | 0.6344 | 0.7066 | 0.2995 | 0.3199 |
