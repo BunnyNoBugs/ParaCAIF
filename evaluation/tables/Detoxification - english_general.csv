@@ -1,0 +1,8 @@
+Model,ACC,SIM,FL,J
+ParaGeDi,0.95,0.66,0.8,0.5
+CondBERT,0.94,0.69,0.77,0.5
+CAIF T5 paraphraser,0.99,0.65,0.56,0.38
+CAIF T5 paraphraser (threshold 0.9),0.99,0.65,0.57,0.38
+CAIF T5 paraphraser (threshold 0.8),0.99,0.65,0.57,0.38
+Mask\&Infill,0.78,0.8,0.49,0.31
+T5 paraphraser (baseline),0.15,0.9,0.87,0.11

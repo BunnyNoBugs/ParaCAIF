@@ -1,0 +1,7 @@
+Model,ACC,SIM,FL,J,chrF
+ruGPT-3 paraphraser (top-k) + reranking (threshold 0.8),0.7294,0.4724,0.8052,0.2858,0.2892
+ruGPT-3 paraphraser (top-k) + reranking (threshold 0.9),0.7318,0.4639,0.8037,0.2815,0.2856
+RuT5-base paraphraser (top-k) + reranking,0.6161,0.6039,0.7144,0.2555,0.3079
+ruGPT-3 paraphraser (top-k) + reranking,0.7441,0.4128,0.8032,0.2536,0.2636
+ruGPT-3 paraphraser (top-k),0.4724,0.5107,0.8527,0.1669,0.3012
+RuT5-base paraphraser (top-k),0.4418,0.5997,0.714,0.1635,0.2674
