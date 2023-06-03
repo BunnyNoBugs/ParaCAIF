@@ -14,3 +14,11 @@ For English, we work with the test data used in an EMNLP 2021 paper "[Text Detox
 The bibliography used in the work can be found in a [Zotero group](https://www.zotero.org/groups/4893101/controllable_text_generation/library).
 
 ## Repository structure
+
+Folder `data` contains the inputs and outputs of the models for detoxification in Russian and English, as well as evaluation results for English.
+
+Folder `evaluation` contains the evalution results for Russian, as well as their analysis.
+
+Folder `paracaif` contains the implementation of ParaCAIF and notebooks with inference for detoxification experiments.
+
+Folder `toxicity_classification` contains training notebooks for Russian toxicity classifiers which are used as attribute discriminators in ParaCAIF.
